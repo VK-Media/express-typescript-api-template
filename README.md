@@ -1,2 +1,1 @@
-# express-typescript-api-template
- 
+# Express TypeScript API Template
