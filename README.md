@@ -1,9 +1,16 @@
 # Express TypeScript API Template
 
-## Includes:
+## Includes
+
+### Packages
 
 -   Express
--   TypeScript
 -   Mongoose
+-   TypeScript
 -   Bcrypt
 -   Bodyparser
+
+### Other
+
+-   Prettier
+-   TsLint
