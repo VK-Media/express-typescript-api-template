@@ -1,17 +1,13 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "pretty": false,
-        "sourceMap": false,
-        "target": "es5",
-        "outDir": "./build",
-        "baseUrl": "./"
-    },
-    "include": [
-        "**/*.ts"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"pretty": false,
+		"sourceMap": false,
+		"target": "es5",
+		"outDir": "./build",
+		"baseUrl": "./"
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules"]
 }
