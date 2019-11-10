@@ -1,1 +1,1 @@
-export { default as UserSchema } from "./User.model"
+export { default as UserModel } from './User.model'

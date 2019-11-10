@@ -1,7 +1,7 @@
-import * as bcrypt from 'bcrypt'
-import * as jwt from 'jsonwebtoken'
+import { hashSync } from 'bcrypt'
+import { sign } from 'jsonwebtoken'
 import * as mongoose from 'mongoose'
-import validator from 'validator'
+import { isEmail } from 'validator'
 
 import { IUserModel } from '../interfaces/User.interfaces'
 
@@ -22,12 +22,12 @@ const UserSchema = new mongoose.Schema(
 )
 
 UserSchema.path('email').validate(email => {
-	return validator.isEmail(email)
+	return isEmail(email)
 }, 'Email is invalid')
 
 UserSchema.methods.generateAuthToken = async function() {
 	const user: IUserModel = this
-	const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
+	const token = sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
 
 	return token
 }
@@ -39,7 +39,7 @@ UserSchema.pre('save', function(this: IUserModel, next) {
 	if (user.isModified('password')) {
 		if (user.password.length < 8)
 			throw Error('Password must be atleast 8 characters')
-		user.password = bcrypt.hashSync(user.password, saltCycles)
+		user.password = hashSync(user.password, saltCycles)
 	}
 
 	next()

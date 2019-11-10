@@ -1,7 +1,6 @@
 import * as bodyParser from 'body-parser'
 import * as express from 'express'
 import { connect } from 'mongoose'
-
 import { UserRoutes } from './routes'
 
 class App {
@@ -31,7 +30,12 @@ class App {
 	}
 
 	private mongoSetup(): void {
-		connect(this.mongoUrl, { useNewUrlParser: true })
+		connect(this.mongoUrl, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useCreateIndex: true,
+			useFindAndModify: false
+		})
 	}
 }
 
